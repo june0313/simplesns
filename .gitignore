@@ -34,6 +34,7 @@ gradle-app.setting
 .idea/uiDesigner.xml
 
 # Gradle:
+/.idea/artifacts
 .idea/gradle.xml
 .idea/libraries
 
@@ -47,6 +48,7 @@ gradle-app.setting
 
 # IntelliJ
 /out/
+/simplesns.iml
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

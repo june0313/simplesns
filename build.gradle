@@ -16,4 +16,7 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-context', version: '4.2.6.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version: '4.2.6.RELEASE'
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.2.6.RELEASE'
+
+    // For Handlebars ViewResolver
+    compile group: 'com.github.jknack', name: 'handlebars-springmvc', version: '4.0.5'
 }

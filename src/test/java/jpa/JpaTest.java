@@ -3,10 +3,7 @@ package jpa;
 import com.june.simplesns.member.domain.Member;
 import org.junit.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -34,15 +31,17 @@ public class JpaTest {
 	}
 
 	private void logic(EntityManager em) {
-		String id = "id1";
 		Member member = new Member();
-		member.setId(id);
+		member.setId("june0313");
 		member.setName("영준");
 		member.setEmail("june0313@gmail.com");
 		member.setPassword("1234");
 
 		// 등록
 		em.persist(member);
+
+		// 기본키값 조회
+		Long id = member.getMemberId();
 
 		// 수정
 		member.setEmail("june0313@naver.com");
@@ -56,6 +55,6 @@ public class JpaTest {
 		System.out.println("members.size = " + members.size());
 
 		// 삭제
-		em.remove(member);
+//		em.remove(member);
 	}
 }

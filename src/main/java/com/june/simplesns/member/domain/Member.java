@@ -15,17 +15,24 @@ import java.util.Date;
 @Table(name = "MEMBER")
 public class Member {
 	@Id
-	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // 기본 키 생성을 데이터베이스에 위임한다.
+	@Column
+	private Long memberId;
+
+	@Column
 	private String id;
 
-	@Column(name = "NAME")
+	@Column(nullable = false, length = 10)
 	private String name;
 
-	@Column(name = "EMAIL")
+	@Column
 	private String email;
 
-	@Column(name = "PASSWORD")
+	@Column
 	private String password;
+
+	@Lob
+	private String description;
 
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date createdDate;

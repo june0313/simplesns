@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ViewResolver;
  * Created by wayne on 2016. 5. 21..
  */
 @Configuration
-@ComponentScan(basePackages = "com.june")
+@ComponentScan(basePackages = "com.june.simplesns.web")
 public class ServletContext {
 	@Bean
 	public ViewResolver viewResolver() {

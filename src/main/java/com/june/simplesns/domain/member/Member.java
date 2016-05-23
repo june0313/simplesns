@@ -1,4 +1,4 @@
-package com.june.simplesns.member.domain;
+package com.june.simplesns.domain.member;
 
 import lombok.Getter;
 import lombok.Setter;

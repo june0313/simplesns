@@ -1,4 +1,4 @@
-package com.june.simplesns.interfaces.dao;
+package com.june.simplesns.repository;
 
 /**
  * Created by wayne on 2016. 5. 21..

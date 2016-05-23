@@ -1,9 +1,12 @@
 package jpa;
 
-import com.june.simplesns.member.domain.Member;
+import com.june.simplesns.domain.member.Member;
 import org.junit.Test;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.util.List;
 
 /**

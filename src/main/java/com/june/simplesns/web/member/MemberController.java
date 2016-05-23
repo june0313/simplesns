@@ -1,8 +1,8 @@
-package com.june.simplesns.member.controller;
+package com.june.simplesns.web.member;
 
-import com.june.simplesns.member.dao.MemberDao;
-import com.june.simplesns.member.domain.Member;
-import com.june.simplesns.member.domain.MemberForm;
+import com.june.simplesns.domain.member.Member;
+import com.june.simplesns.repository.member.MemberDao;
+import com.june.simplesns.domain.member.MemberForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

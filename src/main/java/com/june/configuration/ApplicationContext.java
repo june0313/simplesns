@@ -4,6 +4,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -24,7 +25,7 @@ public class ApplicationContext {
 	@Bean
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/simplesns?serverTimezone=UTC");
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
@@ -36,6 +37,15 @@ public class ApplicationContext {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 		return transactionManager;
+	}
+
+	/**
+	 *  JPA 예외를 스프링 프레임워크가 추상화한 예외로 변환해준다.
+	 *  Repository 어노테이션이 붙은 스프링 빈에만 적용된다.
+	 */
+	@Bean
+	public PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor() {
+		return new PersistenceExceptionTranslationPostProcessor();
 	}
 
 	@Bean

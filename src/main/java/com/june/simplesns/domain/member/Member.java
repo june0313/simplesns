@@ -39,4 +39,15 @@ public class Member {
 
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date modifiedDate;
+
+	@PrePersist
+	private void onCreate() {
+		createdDate = new Date();
+		modifiedDate = new Date();
+	}
+
+	@PreUpdate
+	private void onUpdate() {
+		modifiedDate = new Date();
+	}
 }

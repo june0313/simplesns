@@ -1,8 +1,7 @@
 package com.june.simplesns.web.member;
 
 import com.june.simplesns.domain.member.Member;
-import com.june.simplesns.domain.member.MemberForm;
-import com.june.simplesns.repository.member.MemberRepository;
+import com.june.simplesns.service.member.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/members")
 public class MemberController {
 	@Autowired
-	private MemberRepository memberRepository;
+	private MemberService memberService;
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String getRegisterMemberFrom() {
@@ -24,15 +23,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String registerMember(@ModelAttribute MemberForm memberForm) {
-		Member member = new Member();
-		member.setId(memberForm.getId());
-		member.setName(memberForm.getName());
-		member.setEmail(memberForm.getEmail());
-		member.setPassword(memberForm.getPassword());
-
-		memberRepository.save(member);
-
+	public String registerMember(@ModelAttribute Member member) {
+		memberService.join(member);
 		return "redirect:/";
 	}
 }
